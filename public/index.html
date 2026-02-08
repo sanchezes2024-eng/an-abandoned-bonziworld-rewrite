@@ -5,7 +5,6 @@
     <title>BonziWorld</title>
     <link rel="stylesheet" href="style.css">
     <script src="/socket.io/socket.io.js"></script>
-    <!-- Include speak.js engine -->
     <script src="speakClient.js"></script>
 </head>
 <body>
@@ -36,15 +35,14 @@
         </div>
         <div class="bottom-bar">
             <div class="chat-input-area">
-                <input type="text" id="chat-input" placeholder="Enter a message">
+                <!-- FIXED: Button moved to the left -->
                 <button id="send-button">send+</button>
+                <input type="text" id="chat-input" placeholder="Enter a message">
             </div>
         </div>
     </div>
 
-    <!-- Required by speak.js to play audio -->
     <div id="audio" style="display:none;"></div>
-
     <script src="client.js"></script>
 </body>
 </html>
