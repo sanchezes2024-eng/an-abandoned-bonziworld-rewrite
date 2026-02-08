@@ -2,59 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Application</title>
+    <title>BonziWorld</title>
     <link rel="stylesheet" href="style.css">
     <script src="/socket.io/socket.io.js"></script>
+    <!-- Include speak.js engine -->
+    <script src="speakClient.js"></script>
 </head>
 <body>
     <!-- Login Screen -->
     <div class="container" id="login-container">
         <div class="login-box">
-            <img src="https://via.placeholder.com" alt="Chat Application" class="app-image">
-            <div class="title-text">Chat <span class="app-suffix">App</span></div>
+            <div class="placeholder-img" style="width:100px; height:100px; background:#ccc; margin:0 auto 10px;">Bonzi</div>
+            <div class="title-text">Bonzi<span class="world-text">World</span></div>
             <form id="login-form">
-                <label for="nickname">Nickname</label>
-                <input type="text" id="nickname" required>
-                <label for="roomID">Room ID (Optional)</label>
-                <input type="text" id="roomID">
+                <input type="text" id="nickname" placeholder="Nickname" required>
+                <input type="text" id="roomID" placeholder="Room ID (Optional)">
                 <button type="submit">→</button>
             </form>
-            <div class="footer-links">
-                <p>Welcome to the chat application!</p>
-                <!-- Add relevant links here if needed -->
-            </div>
         </div>
-        <div class="version">Version 1.0</div>
     </div>
 
-    <!-- Main Chat Screen -->
+    <!-- Chat Screen -->
     <div id="chat-container" style="display: none;">
         <div class="top-bar">
-            <div class="menu-icon">☰</div>
-            <div class="logo">Chat <span class="app-suffix">App</span></div>
+            <div class="logo">Bonzi<span class="world-text">World</span></div>
         </div>
-
         <div class="main-area">
-            <div class="stage" id="stage">
-                <!-- User characters will be dynamically added here -->
-            </div>
-
+            <div class="stage" id="stage"></div>
             <div class="info-panel">
-                <p>Users: <span id="user-count">1</span></p>
-                <p>Room ID: <span id="room-id-display">example</span></p>
-                <p id="owner-status" style="display: none;">You are the owner of this room.</p> <!-- Owner status initially hidden -->
-                <p style="display: none;">This room is private.</p> <!-- Privacy status initially hidden -->
+                <p>Users: <span id="user-count">0</span></p>
+                <p>Room: <span id="room-id-display"></span></p>
             </div>
         </div>
-
         <div class="bottom-bar">
             <div class="chat-input-area">
-                <button id="send-button">send+</button>
                 <input type="text" id="chat-input" placeholder="Enter a message">
+                <button id="send-button">send+</button>
             </div>
         </div>
     </div>
+
+    <!-- Required by speak.js to play audio -->
+    <div id="audio" style="display:none;"></div>
 
     <script src="client.js"></script>
 </body>
